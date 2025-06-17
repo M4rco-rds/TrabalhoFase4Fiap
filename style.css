@@ -75,8 +75,14 @@ select.form-select {
 
 input.form-control:focus,
 select.form-select:focus {
-    border-color: #00e5c0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 229, 192, 0.25);
+    border-color: #ccccccbb;
+    box-shadow: 0 0 0 0.2rem rgba(138, 138, 138, 0.25);
+}
+
+input.form-control:hover,
+select.form-select:hover {
+    border-color: #ccccccdb;
+    box-shadow: 0 0 0 0.2rem rgba(138, 138, 138, 0.423);
 }
 
 #saldoAtual {

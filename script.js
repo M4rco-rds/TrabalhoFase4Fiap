@@ -36,8 +36,13 @@ document
     .getElementById("formLancamento")
     .addEventListener("submit", function (e) {
         // Esconde alerta de erro se visível
+        const alertaSucesso = document.getElementById("alerta");
         const alertaErro = document.getElementById("alertaErro");
-        alertaErro.classList.add("d-none");
+
+        alertaSucesso.classList.add('alert-hide');
+        alertaSucesso.style.opacity = '0';
+        alertaErro.classList.add('alert-hide');
+        alertaErro.style.opacity = '0';
 
         e.preventDefault();
 
@@ -50,12 +55,17 @@ document
         const dataAtual = new Date().toLocaleDateString();
 
         if (!tipo || !descricao.trim() || isNaN(valor) || valor <= 0) {
-            alertaErro.textContent =
-                "Preencha todos os campos corretamente.";
+            alertaErro.textContent = "Preencha todos os campos corretamente.";
 
             alertaErro.classList.remove('alert-hide');
             alertaErro.classList.add('alert-transition');
             alertaErro.style.opacity = '1';
+
+            setTimeout(() => {
+                alertaErro.classList.add('alert-hide');
+                alertaErro.classList.add('alert-transition');
+                alertaErro.style.opacity = '0';
+            }, 6000);
 
             return;
         }
@@ -84,15 +94,14 @@ document
         grafico.update();
         atualizarSaldo();
 
-        const alerta = document.getElementById("alerta");
-
-        alertaErro.classList.remove('alert-hide');
-        alertaErro.classList.add('alert-transition');
-        alertaErro.style.opacity = '1';
-
+        alertaSucesso.classList.remove('alert-hide');
+        alertaSucesso.classList.add('alert-transition');
+        alertaSucesso.style.opacity = '1';
 
         setTimeout(() => {
-            alerta.classList.add('alert-hide');
+            alertaSucesso.classList.add('alert-hide');
+            alertaSucesso.classList.add('alert-transition');
+            alertaSucesso.style.opacity = '0';
         }, 6000);
 
         document.getElementById("formLancamento").reset();
