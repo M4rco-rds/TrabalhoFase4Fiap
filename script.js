@@ -78,7 +78,6 @@ document.getElementById('formLancamento').addEventListener('submit', function(e)
         setTimeout(() => alerta.classList.add('d-none'), 3000);
 
         document.getElementById('formLancamento').reset();
-    }
 });
 
 const campoValor = document.getElementById('valor');
