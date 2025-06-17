@@ -1,115 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fintech POC</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduCash POC</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Fintech</a>
-        </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">EduCash</a>
+      </div>
     </nav>
 
     <main class="container mt-5 pt-5">
-        <!-- Saudação -->
-        <div class="text-center my-4">
-            <h1>Bem-vindo à sua Fintech</h1>
-            <p class="lead">Gerencie suas finanças com facilidade.</p>
-        </div>
+      <!-- Saudação -->
+      <div class="text-center my-4">
+        <h1>Bem-vindo à sua EduCash</h1>
+        <p class="lead">Gerencie suas finanças com facilidade.</p>
+      </div>
 
-        <!-- Alerta de sucesso -->
-        <div id="alerta" class="alert alert-success text-center d-none" role="alert">
-</div>
-<div id="alertaErro" class="alert alert-danger text-center d-none" role="alert">
-            Lançamento adicionado com sucesso!
-        </div>
+      <!-- Alerta de sucesso -->
+      <div
+        id="alerta"
+        class="alert alert-success text-center d-none"
+        role="alert"
+      ></div>
+      <div
+        id="alertaErro"
+        class="alert alert-danger text-center d-none"
+        role="alert"
+      >
+        Lançamento adicionado com sucesso!
+      </div>
 
-        <!-- Card de saldo -->
-        <div class="card text-white bg-success mb-4 text-center">
-            <div class="card-body">
-                <h4 class="card-title">Saldo Atual</h4>
-                <p id="saldoAtual" class="card-text fs-3">R$ 1.800,00</p>
+      <!-- Card de saldo -->
+      <div class="card text-white bg-success mb-4 text-center">
+        <div class="card-body">
+          <h4 class="card-title">Saldo Atual</h4>
+          <p id="saldoAtual" class="card-text fs-3">R$ 1.800,00</p>
+        </div>
+      </div>
+
+      <!-- Formulário de lançamento -->
+      <div class="card mb-4">
+        <div class="card-header">Novo Lançamento</div>
+        <div class="card-body">
+          <form id="formLancamento">
+            <div class="mb-3">
+              <label for="tipo" class="form-label">Tipo</label>
+              <select class="form-select" id="tipo">
+                <option value="Receita">Receita</option>
+                <option value="Despesa">Despesa</option>
+              </select>
             </div>
-        </div>
-
-        <!-- Formulário de lançamento -->
-        <div class="card mb-4">
-            <div class="card-header">Novo Lançamento</div>
-            <div class="card-body">
-                <form id="formLancamento">
-                    <div class="mb-3">
-                        <label for="tipo" class="form-label">Tipo</label>
-                        <select class="form-select" id="tipo">
-                            <option value="Receita">Receita</option>
-                            <option value="Despesa">Despesa</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="descricao" class="form-label">Descrição</label>
-                        <input type="text" class="form-control" id="descricao" placeholder="Ex: Salário, Aluguel">
-                    </div>
-                    <div class="mb-3">
-                        <label for="valor" class="form-label">Valor</label>
-                        <input type="text" class="form-control" id="valor" placeholder="R$">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Adicionar</button>
-                </form>
+            <div class="mb-3">
+              <label for="descricao" class="form-label">Descrição</label>
+              <input
+                type="text"
+                class="form-control"
+                id="descricao"
+                placeholder="Ex: Salário, Aluguel"
+              />
             </div>
-        </div>
-
-        <!-- Tabela de lançamentos -->
-        <div class="card mb-4">
-            <div class="card-header">Últimos Lançamentos</div>
-            <div class="card-body">
-                <table class="table table-hover" id="tabelaLancamentos">
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Tipo</th>
-                            <th>Descrição</th>
-                            <th>Valor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>17/06/2025</td>
-                            <td>Receita</td>
-                            <td>Salário</td>
-                            <td class="text-success">+ R$ 3.000,00</td>
-                        </tr>
-                        <tr>
-                            <td>15/06/2025</td>
-                            <td>Despesa</td>
-                            <td>Aluguel</td>
-                            <td class="text-danger">- R$ 1.200,00</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="mb-3">
+              <label for="valor" class="form-label">Valor</label>
+              <input
+                type="text"
+                class="form-control"
+                id="valor"
+                placeholder="R$"
+              />
             </div>
+            <button type="submit" class="btn btn-primary">Adicionar</button>
+          </form>
         </div>
+      </div>
 
-        <!-- Gráfico financeiro com Chart.js -->
-        <div class="card mb-4">
-            <div class="card-header">Gráfico Financeiro</div>
-            <div class="card-body">
-                <canvas id="graficoFinanceiro" height="100"></canvas>
-            </div>
+      <!-- Tabela de lançamentos -->
+      <div class="card mb-4">
+        <div class="card-header">Últimos Lançamentos</div>
+        <div class="card-body">
+          <table class="table table-hover" id="tabelaLancamentos">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Tipo</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>17/06/2025</td>
+                <td>Receita</td>
+                <td>Salário</td>
+                <td class="text-success">+ R$ 3.000,00</td>
+              </tr>
+              <tr>
+                <td>15/06/2025</td>
+                <td>Despesa</td>
+                <td>Aluguel</td>
+                <td class="text-danger">- R$ 1.200,00</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
+
+      <!-- Gráfico financeiro com Chart.js -->
+      <div class="card mb-4">
+        <div class="card-header">Gráfico Financeiro</div>
+        <div class="card-body">
+          <canvas id="graficoFinanceiro" height="100"></canvas>
+        </div>
+      </div>
     </main>
 
     <!-- Rodapé -->
     <footer class="bg-dark text-white text-center py-3 mt-5">
-        <p class="mb-0">© 2025 Fintech - Projeto de Faculdade</p>
+      <p class="mb-0">© 2025 EduCash - Projeto de Faculdade</p>
     </footer>
-
     <script src="script.js"></script>
-
-</body>
+  </body>
 </html>

@@ -1,15 +1,93 @@
 body {
-    background-color: #f8f9fa;
-    font-family: Arial, sans-serif;
+  background-color: #101d2c;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+}
+
+.navbar {
+  background: linear-gradient(to right, #0a192f, #113b5c);
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #00e5c0;
+}
+
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #00e5c0 !important;
 }
 
 .card {
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 229, 192, 0.15);
+  background-color: #f8fafc;
+  color: #0a192f;
+  border: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
 }
 
 footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
+  background-color: #0a192f;
+  color: #00e5c0;
+}
+
+.btn-primary {
+  background-color: #1b2a41;
+  border: none;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #ccc;
+}
+
+.alert-success {
+  background-color: #d1f7f0;
+  color: #055c48;
+  border: none;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: none;
+}
+
+.table th {
+  background-color: #e4f7f5;
+  color: #0a192f;
+}
+
+.table td {
+  background-color: #ffffff;
+  color: #0a192f;
+}
+
+input.form-control,
+select.form-select {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  color: #0a192f;
+}
+
+input.form-control:focus,
+select.form-select:focus {
+  border-color: #00e5c0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 229, 192, 0.25);
+}
+
+#saldoAtual {
+  font-weight: 600;
+  font-size: 2rem;
+  color: #00e5c0;
+}
+
+main .container,
+.card-body,
+.form-control,
+.form-select {
+  transition: all 0.3s ease;
 }
